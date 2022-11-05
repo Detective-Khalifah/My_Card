@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,42 +11,105 @@
     <!-- The primary full-screen view. This can be replaced with whatever view
          is needed to present your content, e.g. VideoView, SurfaceView,
          TextureView, etc. -->
-    <TextView
-        android:id="@+id/fullscreen_content"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:keepScreenOn="true"
-        android:text="@string/dummy_content"
-        android:textColor="?attr/fullscreenTextColor"
-        android:textSize="50sp"
-        android:textStyle="bold" />
 
-    <!-- This FrameLayout insets its children based on system windows using
+    <ScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- This FrameLayout insets its children based on system windows using
          android:fitsSystemWindows. -->
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fitsSystemWindows="true">
-
-        <LinearLayout
-            android:id="@+id/fullscreen_content_controls"
-            style="@style/Widget.Theme.MyCard.ButtonBar.Fullscreen"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center_horizontal"
-            android:orientation="horizontal"
-            tools:ignore="UselessParent">
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            android:keepScreenOn="true">
 
-            <Button
-                android:id="@+id/dummy_button"
-                style="?android:attr/buttonBarButtonStyle"
-                android:layout_width="0dp"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/dummy_button" />
+                android:padding="16dp">
 
-        </LinearLayout>
-    </FrameLayout>
+                <ImageView
+                    android:id="@+id/img_me"
+                    android:layout_width="128dp"
+                    android:layout_height="128dp"
+                    android:contentDescription="@string/profile_photo_desc"
+                    android:padding="16dp"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintBottom_toTopOf="@id/img_me"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/profile_img"
+                    tools:srcCompat="@drawable/profile_img" />
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/img_me">
+
+                    <LinearLayout
+                        android:id="@+id/fullscreen_content_controls"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:orientation="horizontal"
+                        android:scrollbars="horizontal"
+                        tools:ignore="MissingParent">
+
+                        <ImageButton
+                            android:id="@+id/img_button_fb"
+                            android:layout_width="@dimen/image_size"
+                            android:layout_height="@dimen/image_size"
+                            android:src="@drawable/facebook_3_64" />
+
+                        <ImageButton
+                            android:id="@+id/img_button_ig"
+                            android:layout_width="@dimen/image_size"
+                            android:layout_height="@dimen/image_size"
+                            android:src="@drawable/instagram_3_64" />
+
+                        <ImageButton
+                            android:id="@+id/img_button_linkedin"
+                            android:layout_width="@dimen/image_size"
+                            android:layout_height="@dimen/image_size"
+                            android:src="@drawable/linkedin_3_64" />
+
+                        <ImageButton
+                            android:id="@+id/img_button_twitter"
+                            android:layout_width="@dimen/image_size"
+                            android:layout_height="@dimen/image_size"
+                            android:src="@drawable/twitter_3_64" />
+
+                        <ImageButton
+                            android:id="@+id/img_button_github"
+                            android:layout_width="@dimen/image_size"
+                            android:layout_height="@dimen/image_size"
+                            android:src="@drawable/github_3_64" />
+
+                        <ImageButton
+                            android:id="@+id/img_button_web"
+                            android:layout_width="@dimen/image_size"
+                            android:layout_height="@dimen/image_size"
+                            android:background="@color/light_blue_600"
+                            android:backgroundTint="@color/light_blue_600"
+                            android:src="@drawable/website_optimization_2_64" />
+
+                    </LinearLayout>
+
+                </ScrollView>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </FrameLayout>
+
+    </ScrollView>
 
 </FrameLayout>
