@@ -41,6 +41,19 @@
                     app:srcCompat="@drawable/profile_img"
                     tools:srcCompat="@drawable/profile_img" />
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="@string/detect_username"
+                    android:textColor="@color/light_blue_A200"
+                    android:textSize="28sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@id/fullscreen_content_controls"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/img_me" />
+
                 <LinearLayout
                     android:id="@+id/fullscreen_content_controls"
                     android:layout_width="match_parent"
@@ -54,12 +67,12 @@
                     tools:ignore="MissingParent">
 
                     <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/button_facebook"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/card_bottom_margin">
 
                         <ImageButton
-                            android:id="@+id/img_button_fb"
                             android:layout_width="@dimen/image_size"
                             android:layout_height="@dimen/image_size"
                             android:elevation="4dp"
@@ -68,12 +81,12 @@
                     </com.google.android.material.card.MaterialCardView>
 
                     <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/button_instagram"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginBottom="@dimen/card_bottom_margin">
 
                         <ImageButton
-                            android:id="@+id/img_button_ig"
                             android:layout_width="@dimen/image_size"
                             android:layout_height="@dimen/image_size"
                             android:src="@drawable/instagram_3_64" />
@@ -81,12 +94,12 @@
                     </com.google.android.material.card.MaterialCardView>
 
                     <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/button_linkedin"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/card_bottom_margin">
 
                         <ImageButton
-                            android:id="@+id/img_button_linkedin"
                             android:layout_width="@dimen/image_size"
                             android:layout_height="@dimen/image_size"
                             android:src="@drawable/linkedin_3_64" />
@@ -94,12 +107,12 @@
                     </com.google.android.material.card.MaterialCardView>
 
                     <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/button_twitter"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/card_bottom_margin">
 
                         <ImageButton
-                            android:id="@+id/img_button_twitter"
                             android:layout_width="@dimen/image_size"
                             android:layout_height="@dimen/image_size"
                             android:src="@drawable/twitter_3_64" />
@@ -107,12 +120,12 @@
                     </com.google.android.material.card.MaterialCardView>
 
                     <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/button_github"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/card_bottom_margin">
 
                         <ImageButton
-                            android:id="@+id/img_button_github"
                             android:layout_width="@dimen/image_size"
                             android:layout_height="@dimen/image_size"
                             android:src="@drawable/github_3_64" />
@@ -120,11 +133,11 @@
                     </com.google.android.material.card.MaterialCardView>
 
                     <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/button_web"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
                         <ImageButton
-                            android:id="@+id/img_button_web"
                             android:layout_width="@dimen/image_size"
                             android:layout_height="@dimen/image_size"
                             android:src="@drawable/website_optimization_2_64" />

@@ -1,17 +1,11 @@
 package com.blogspot.thengnet.mycard;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.navigation.fragment.NavHostFragment;
-
 import android.os.Handler;
 import android.os.Looper;
 import android.view.LayoutInflater;
@@ -22,10 +16,15 @@ import android.view.WindowInsets;
 
 import com.blogspot.thengnet.mycard.databinding.FragmentSocialBinding;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.navigation.fragment.NavHostFragment;
+
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link SocialFragment# newInstance} factory method to
- * create an instance of this fragment.
  */
 public class SocialFragment extends Fragment {
     /**
@@ -38,7 +37,7 @@ public class SocialFragment extends Fragment {
      * If {@link #AUTO_HIDE} is set, the number of milliseconds to wait after
      * user interaction before hiding the system UI.
      */
-    private static final int AUTO_HIDE_DELAY_MILLIS = 3000;
+    private static final int AUTO_HIDE_DELAY_MILLIS = 30000;
 
     /**
      * Some older devices needs a small delay between UI widget updates
@@ -73,7 +72,7 @@ public class SocialFragment extends Fragment {
         @Override
         public void run () {
             // Delayed display of UI elements
-            ActionBar actionBar = ((AppCompatActivity)getActivity()).getSupportActionBar();
+            ActionBar actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
             if (actionBar != null) {
                 actionBar.show();
             }
@@ -84,7 +83,7 @@ public class SocialFragment extends Fragment {
     private final Runnable mHideRunnable = new Runnable() {
         @Override
         public void run () {
-            //hide();
+            hide();
         }
     };
     /**
@@ -158,11 +157,82 @@ public class SocialFragment extends Fragment {
         // created, to briefly hint to the user that UI controls
         // are available.
         delayedHide(100);
+
+        binding.buttonFacebook.setOnClickListener(new ProfileClickListener());
+        binding.buttonInstagram.setOnClickListener(new ProfileClickListener());
+        binding.buttonLinkedin.setOnClickListener(new ProfileClickListener());
+        binding.buttonTwitter.setOnClickListener(new ProfileClickListener());
+        binding.buttonGithub.setOnClickListener(new ProfileClickListener());
+        binding.buttonWeb.setOnClickListener(new ProfileClickListener());
+    }
+
+    private Intent getBlogIntent () {
+        return new Intent(Intent.ACTION_VIEW).setData(Uri.parse("https://thengnet.blogspot.com"));
+    }
+
+    private Intent getFacebookIntent () {
+        try {
+            getContext().getPackageManager().getPackageInfo("com.facebook.katana", 0);
+            return new Intent(Intent.ACTION_VIEW, Uri.parse("fb://page/NGNet.crew"));
+        } catch (Exception e) {
+            return new Intent(Intent.ACTION_VIEW,
+                    Uri.parse("https://www.facebook.com/Detective.Khalifah"));
+        }
+    }
+
+    private Intent getGitHubIntent () {
+        return new Intent(Intent.ACTION_VIEW).setData(Uri.parse("https://github.com/Detective-Khalifah"));
+    }
+
+    private Intent getInstagramIntent () {
+        String url = "https://instagram.com/_u/detective_khalifah";
+        final Intent intent = new Intent(Intent.ACTION_VIEW);
+        try {
+            if (getContext().getPackageManager().getPackageInfo("com.instagram.android", 0) != null) {
+                if (url.endsWith("/")) {
+                    url = url.substring(0, url.length() - 1);
+                }
+                final String username = url.substring(url.lastIndexOf("/") + 1);
+                // http://stackoverflow.com/questions/21505941/intent-to-open-instagram-user-profile-on-android
+                intent.setData(Uri.parse("http://instagram.com/_u/" + "detective_khalifah"));
+                intent.setPackage("com.instagram.android");
+                return intent;
+            }
+        } catch (PackageManager.NameNotFoundException ignored) {
+        }
+        intent.setData(Uri.parse(url));
+        return intent;
+    }
+
+    private Intent getLinkedInIntent () {
+        String profile_url = "https://www.linkedin.com/in/Detective-Khalifah";
+        try {
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(profile_url));
+            intent.setPackage("com.linkedin.android");
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            return intent;
+        } catch (Exception e) {
+            return new Intent(Intent.ACTION_VIEW, Uri.parse(profile_url));
+        }
+    }
+
+    private Intent getTwitterIntent () {
+        try {
+            return new Intent(Intent.ACTION_VIEW,
+                    Uri.parse("twitter://user?screen_name="
+                            .concat("Detect_Khalifah")));
+
+        } catch (Exception e) {
+            return new Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse("https://twitter.com/#!/".concat("Detect_Khalifah")));
+        }
+
     }
 
     private void toggle () {
         if (mVisible) {
-//            hide();
+            hide();
         } else {
             show();
         }
@@ -170,7 +240,7 @@ public class SocialFragment extends Fragment {
 
     private void hide () {
         // Hide UI first
-        ActionBar actionBar = ((AppCompatActivity)getActivity()).getSupportActionBar();
+        ActionBar actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
         if (actionBar != null) {
             actionBar.hide();
         }
@@ -205,5 +275,24 @@ public class SocialFragment extends Fragment {
     private void delayedHide (int delayMillis) {
         mHideHandler.removeCallbacks(mHideRunnable);
         mHideHandler.postDelayed(mHideRunnable, delayMillis);
+    }
+
+    private class ProfileClickListener implements View.OnClickListener {
+
+        @Override
+        public void onClick (View view) {
+            if (view.getId() == binding.buttonFacebook.getId())
+                startActivity(getFacebookIntent());
+            else if (view.getId() == binding.buttonInstagram.getId())
+                startActivity(getInstagramIntent());
+            else if (view.getId() == binding.buttonLinkedin.getId())
+                startActivity(getLinkedInIntent());
+            else if (view.getId() == binding.buttonTwitter.getId())
+                startActivity(getTwitterIntent());
+            else if (view.getId() == binding.buttonGithub.getId())
+                startActivity(getGitHubIntent());
+            else if (view.getId() == binding.buttonWeb.getId())
+                startActivity(getBlogIntent());
+        }
     }
 }
