@@ -1,41 +1,17 @@
-package com.blogspot.thengnet.mycard;
+package com.blogspot.thengnet.mycard
 
-import android.annotation.SuppressLint;
-import android.os.Build;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.WindowInsets;
-
-import com.blogspot.thengnet.mycard.databinding.FragmentBioBinding;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.navigation.fragment.NavHostFragment;
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.NavHostFragment
+import com.blogspot.thengnet.mycard.databinding.FragmentBioBinding
 
 /**
- * A simple {@link Fragment} subclass.
+ * A simple [Fragment] subclass.
  */
-public class BioFragment extends Fragment {
-    /**
-     * Whether or not the system UI should be auto-hidden after
-     * {@link #AUTO_HIDE_DELAY_MILLIS} milliseconds.
-     */
-    private static final boolean AUTO_HIDE = true;
-
-    /**
-     * If {@link #AUTO_HIDE} is set, the number of milliseconds to wait after
-     * user interaction before hiding the system UI.
-     */
-    private static final int AUTO_HIDE_DELAY_MILLIS = 3000;
-
+class BioFragment : Fragment() {
     /**
      * Some older devices needs a small delay between UI widget updates
      * and a change of the status and navigation bar.
@@ -89,44 +65,41 @@ public class BioFragment extends Fragment {
      * system UI. This is to prevent the jarring behavior of controls going away
      * while interacting with activity UI.
      *
-    private final View.OnTouchListener mDelayHideTouchListener = new View.OnTouchListener() {
-        @Override
-        public boolean onTouch (View view, MotionEvent motionEvent) {
-            switch (motionEvent.getAction()) {
-                case MotionEvent.ACTION_DOWN:
-                    if (AUTO_HIDE) {
-                        delayedHide(AUTO_HIDE_DELAY_MILLIS);
-                    }
-                    break;
-                case MotionEvent.ACTION_UP:
-                    view.performClick();
-                    break;
-                default:
-                    break;
-            }
-            return false;
-        }
-    }; */
-    private FragmentBioBinding binding;
-
-    @Override
-    public View onCreateView (LayoutInflater inflater, ViewGroup container,
-                              Bundle savedInstanceState) {
+     * private final View.OnTouchListener mDelayHideTouchListener = new View.OnTouchListener() {
+     * @Override
+     * public boolean onTouch (View view, MotionEvent motionEvent) {
+     * switch (motionEvent.getAction()) {
+     * case MotionEvent.ACTION_DOWN:
+     * if (AUTO_HIDE) {
+     * delayedHide(AUTO_HIDE_DELAY_MILLIS);
+     * }
+     * break;
+     * case MotionEvent.ACTION_UP:
+     * view.performClick();
+     * break;
+     * default:
+     * break;
+     * }
+     * return false;
+     * }
+     * };  */
+    private var binding: FragmentBioBinding? = null
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         // Inflate the layout for this fragment
-        binding = FragmentBioBinding.inflate(inflater, container, false);
-        return binding.getRoot();
+        binding = FragmentBioBinding.inflate(inflater, container, false)
+        return binding!!.root
     }
 
-    @Override
-    public void onViewCreated (@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         // Upon touching the button, open up BioFragment
-        binding.buttonToSocial.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick (View view) {
-                NavHostFragment.findNavController(BioFragment.this).navigate(R.id.action_BioFragment_to_SocialFragment);
-            }
-        });
+        binding!!.buttonToSocial.setOnClickListener {
+            NavHostFragment.findNavController(this@BioFragment)
+                .navigate(R.id.action_BioFragment_to_SocialFragment)
+        }
 
         /*mVisible = true;
         mControlsView = binding.nestedScrollView;
@@ -149,9 +122,7 @@ public class BioFragment extends Fragment {
         // created, to briefly hint to the user that UI controls
         // are available.
         delayedHide(100); */
-    }
-
-    /*
+    } /*
     private void toggle () {
         if (mVisible) {
             hide();
@@ -194,8 +165,21 @@ public class BioFragment extends Fragment {
      * Schedules a call to hide() in delay milliseconds, canceling any
      * previously scheduled calls.
      *
-    private void delayedHide (int delayMillis) {
-        mHideHandler.removeCallbacks(mHideRunnable);
-        mHideHandler.postDelayed(mHideRunnable, delayMillis);
-    } */
+     * private void delayedHide (int delayMillis) {
+     * mHideHandler.removeCallbacks(mHideRunnable);
+     * mHideHandler.postDelayed(mHideRunnable, delayMillis);
+     * }  */
+    companion object {
+        /**
+         * Whether or not the system UI should be auto-hidden after
+         * [.AUTO_HIDE_DELAY_MILLIS] milliseconds.
+         */
+        private const val AUTO_HIDE = true
+
+        /**
+         * If [.AUTO_HIDE] is set, the number of milliseconds to wait after
+         * user interaction before hiding the system UI.
+         */
+        private const val AUTO_HIDE_DELAY_MILLIS = 3000
+    }
 }
