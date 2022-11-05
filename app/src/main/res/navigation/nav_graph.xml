@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/SocialFragment">
+
+    <fragment
+        android:id="@+id/SocialFragment"
+        android:name="com.blogspot.thengnet.mycard.SocialFragment"
+        android:label="@string/social_fragment_label"
+        tools:layout="@layout/fragment_social">
+
+        <action
+            android:id="@+id/action_SocialFragment_to_BioFragment"
+            app:destination="@id/BioFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/BioFragment"
+        android:name="com.blogspot.thengnet.mycard.BioFragment"
+        android:label="@string/bio_fragment_label"
+        tools:layout="@layout/fragment_bio">
+
+        <action
+            android:id="@+id/action_BioFragment_to_SocialFragment"
+            app:destination="@id/SocialFragment" />
+    </fragment>
+
+</navigation>
