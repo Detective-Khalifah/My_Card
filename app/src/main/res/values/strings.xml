@@ -4,17 +4,24 @@
     <string name="bio_text">
         "I am a Computer Science student with 6 years of programming experience, and ~3 in Android"
         "development; looking to make my skills robust and explore other fields to build a powerful"
-        "career.\n\n"
-
-        "I have joined HNG this year, to see if I could earn some bucks while I learn mobile"
+        "career. I have joined HNG this year, to see if I could earn some bucks while I learn mobile"
         "development through my experience at Google Africa Development Scholarship (GADS) '22. In"
-        "due time, that would enable me to beat/crush HNG10 or HNG\'n\'."
+        "due time, that would enable me to beat/crush HNG10 or HNG'n'."
     </string>
+
+    <string name="detect_username" translatable="false">Detective_Khalifah</string>
 
     <!-- Strings used for fragments for navigation -->
     <string name="social_fragment_label">Social</string>
     <string name="bio_fragment_label">Bio</string>
     <string name="button_to_social">Social Deets</string>
     <string name="button_to_bio">Bio Deets</string>
-    <string name="detect_username">Detective_Khalifah</string>
+
+    <!-- Content Description for social media/network profiles -->
+    <string name="facebook_button_description">Detective_Khalifah\'s Facebook Profile</string>
+    <string name="linkedin_button_description">Detective_Khalifah\'s LinkedIn Profile</string>
+    <string name="instagram_button_description">Detective_Khalifah\'s Instagram Profile</string>
+    <string name="twitter_button_description">Detective_Khalifah\'s Twitter Profile</string>
+    <string name="github_button_description">Detective_Khalifah\'s GitHub Profile</string>
+    <string name="thengnet_blog_button_description">Detective_Khalifah\'s Blog</string>
 </resources>
