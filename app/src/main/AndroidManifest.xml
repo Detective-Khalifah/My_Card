@@ -17,6 +17,7 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:exported="true"
             android:label="@string/app_name"
+            android:screenOrientation="fullUser"
             android:theme="@style/Theme.MyCard.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

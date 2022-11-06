@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SocialFragment">
+
+    <!-- The primary full-screen view. This can be replaced with whatever view
+         is needed to present your content, e.g. VideoView, SurfaceView,
+         TextureView, etc. -->
+    <LinearLayout
+        android:id="@+id/linear_root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:id="@+id/linear_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/scroll_view"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/img_me"
+                android:layout_width="256dp"
+                android:layout_height="256dp"
+                android:contentDescription="@string/profile_photo_desc"
+                android:padding="8dp"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/profile_img"
+                tools:srcCompat="@drawable/profile_img" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/detect_username"
+                android:textColor="@color/light_blue_A200"
+                android:textSize="28sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+            <ScrollView
+                android:id="@+id/scroll_view"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+                <!-- This FrameLayout insets its children based on system windows using
+                 android:fitsSystemWindows. -->
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fitsSystemWindows="true"
+                    android:keepScreenOn="true">
+
+                    <LinearLayout
+                        android:id="@+id/fullscreen_content_controls"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/img_me"
+                        tools:ignore="MissingParent">
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/button_facebook"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/card_bottom_margin">
+
+                            <ImageButton
+                                android:layout_width="@dimen/image_size"
+                                android:layout_height="@dimen/image_size"
+                                android:contentDescription="@string/facebook_button_description"
+                                android:elevation="4dp"
+                                android:src="@drawable/facebook_3_128" />
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/button_instagram"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="@dimen/card_bottom_margin">
+
+                            <ImageButton
+                                android:layout_width="@dimen/image_size"
+                                android:layout_height="@dimen/image_size"
+                                android:contentDescription="@string/instagram_button_description"
+                                android:src="@drawable/instagram_3_128" />
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/button_linkedin"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/card_bottom_margin">
+
+                            <ImageButton
+                                android:layout_width="@dimen/image_size"
+                                android:layout_height="@dimen/image_size"
+                                android:contentDescription="@string/linkedin_button_description"
+                                android:src="@drawable/linkedin_3_128" />
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/button_twitter"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/card_bottom_margin">
+
+                            <ImageButton
+                                android:layout_width="@dimen/image_size"
+                                android:layout_height="@dimen/image_size"
+                                android:contentDescription="@string/twitter_button_description"
+                                android:src="@drawable/twitter_3_128" />
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/button_github"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/card_bottom_margin">
+
+                            <ImageButton
+                                android:layout_width="@dimen/image_size"
+                                android:layout_height="@dimen/image_size"
+                                android:contentDescription="@string/github_button_description"
+                                android:src="@drawable/github_3_128" />
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/button_web"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <ImageButton
+                                android:layout_width="@dimen/image_size"
+                                android:layout_height="@dimen/image_size"
+                                android:contentDescription="@string/thengnet_blog_button_description"
+                                android:src="@drawable/website_optimization_2_128" />
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                    </LinearLayout>
+
+                </FrameLayout>
+
+            </ScrollView>
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button_to_bio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_to_bio"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
