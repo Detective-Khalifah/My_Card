@@ -76,7 +76,8 @@
                             android:layout_width="@dimen/image_size"
                             android:layout_height="@dimen/image_size"
                             android:elevation="4dp"
-                            android:src="@drawable/facebook_3_64" />
+                            android:src="@drawable/facebook_3_64"
+                            android:contentDescription="@string/facebook_button_description" />
 
                     </com.google.android.material.card.MaterialCardView>
 
@@ -89,7 +90,8 @@
                         <ImageButton
                             android:layout_width="@dimen/image_size"
                             android:layout_height="@dimen/image_size"
-                            android:src="@drawable/instagram_3_64" />
+                            android:src="@drawable/instagram_3_64"
+                            android:contentDescription="@string/instagram_button_description" />
 
                     </com.google.android.material.card.MaterialCardView>
 
@@ -102,7 +104,8 @@
                         <ImageButton
                             android:layout_width="@dimen/image_size"
                             android:layout_height="@dimen/image_size"
-                            android:src="@drawable/linkedin_3_64" />
+                            android:src="@drawable/linkedin_3_64"
+                            android:contentDescription="@string/linkedin_button_description" />
 
                     </com.google.android.material.card.MaterialCardView>
 
@@ -115,7 +118,8 @@
                         <ImageButton
                             android:layout_width="@dimen/image_size"
                             android:layout_height="@dimen/image_size"
-                            android:src="@drawable/twitter_3_64" />
+                            android:src="@drawable/twitter_3_64"
+                            android:contentDescription="@string/twitter_button_description" />
 
                     </com.google.android.material.card.MaterialCardView>
 
@@ -128,7 +132,8 @@
                         <ImageButton
                             android:layout_width="@dimen/image_size"
                             android:layout_height="@dimen/image_size"
-                            android:src="@drawable/github_3_64" />
+                            android:src="@drawable/github_3_64"
+                            android:contentDescription="@string/github_button_description" />
 
                     </com.google.android.material.card.MaterialCardView>
 
@@ -140,7 +145,8 @@
                         <ImageButton
                             android:layout_width="@dimen/image_size"
                             android:layout_height="@dimen/image_size"
-                            android:src="@drawable/website_optimization_2_64" />
+                            android:src="@drawable/website_optimization_2_64"
+                            android:contentDescription="@string/thengnet_blog_button_description" />
 
                     </com.google.android.material.card.MaterialCardView>
 

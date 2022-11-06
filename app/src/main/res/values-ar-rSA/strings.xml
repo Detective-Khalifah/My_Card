@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">My Card</string>
+    <string name="social_fragment_label">الملف الاجتماعي</string>
+    <string name="bio_fragment_label">السيرة الذاتية</string>
+    <string name="button_to_bio">تفاصيل السيرة الذاتية</string>
+    <string name="button_to_social">التفاصيل الاجتماعية</string>
+    <string name="facebook_button_description">الملف الشخصي لـDetective_Kalifah على الفيسبوك</string>
+    <string name="instagram_button_description">الملف الشخصي لـDetective_Khalifah على Instagram</string>
+    <string name="linkedin_button_description">ملف Detective_Khalifah الشخصي على LinkedIn</string>
+    <string name="twitter_button_description">الملف الشخصي لـDetective_Khalifah على تويتر</string>
+    <string name="github_button_description">الملف الشخصي لـ Detective_Kalifah على GitHub</string>
+    <string name="thengnet_blog_button_description">مدونة المحقق_خليفة</string>
+    <string name="bio_text">أنا طالب في علوم الكمبيوتر ولدي 6 سنوات من الخبرة في البرمجة ، و ~ 3 في تطوير Android ؛ أتطلع إلى جعل مهاراتي قوية واستكشاف مجالات أخرى لبناء حياة مهنية قوية. لقد انضممت إلى HNG هذا العام ، لمعرفة ما إذا كان بإمكاني ربح بعض الدولارات أثناء تعلمي تطوير الأجهزة المحمولة من خلال تجربتي في Google Africa Development Scholarship (GADS) \'22. في الوقت المناسب ، سيمكنني ذلك من التغلب على / سحق HNG10 أو HNG\'n \'.</string>
+    <string name="profile_photo_desc">صورة الملف الشخصي لـ Detective_Khalifah</string>
+</resources>
