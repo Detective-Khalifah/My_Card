@@ -27,6 +27,15 @@ class FullscreenActivity : AppCompatActivity() {
         setupActionBarWithNavController(this, navController, appBarConfiguration!!)
     }
 
+    override fun onPostCreate(savedInstanceState: Bundle?) {
+        super.onPostCreate(savedInstanceState)
+
+        // Trigger the initial hide() shortly after the activity has been
+        // created, to briefly hint to the user that UI controls
+        // are available.
+//        delayedHide(100);
+    }
+
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(this, R.id.nav_host_fragment_content_main)
         return (navigateUp(navController, appBarConfiguration!!)
